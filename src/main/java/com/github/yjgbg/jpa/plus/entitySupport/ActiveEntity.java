@@ -5,7 +5,7 @@ package com.github.yjgbg.jpa.plus.entitySupport;
  * @author weicl
  * @param <Self>
  */
-public interface ActiveEntity<Self> {
+public interface ActiveEntity<Self extends ActiveEntity<Self>> {
 
     /**
      * 保存该实体
@@ -14,7 +14,7 @@ public interface ActiveEntity<Self> {
     @SuppressWarnings("unchecked")
     default Self save() {
         if (ActiveEntityHelper.saveFunction==null)
-            throw new UnsupportedOperationException("没有注册ActiveEntity.saveFunction,不支持ActiveEntity的save功能");
+            throw new UnsupportedOperationException("没有注册ActiveEntity.saveFunction,不支持save功能");
         return (Self) ActiveEntityHelper.saveFunction.apply(this);
     }
 
@@ -23,7 +23,7 @@ public interface ActiveEntity<Self> {
      */
     default void remove() {
         if (ActiveEntityHelper.removeFunction==null)
-            throw new UnsupportedOperationException("没有注册ActiveEntity.removeFunction,不支持ActiveEntity的remove功能");
+            throw new UnsupportedOperationException("没有注册ActiveEntity.removeFunction,不支持remove功能");
         ActiveEntityHelper.removeFunction.accept(this);
     }
 }
