@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.yjgbg</groupId>
     <artifactId>active-entity</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <name>active-entity</name>
     <description>spring-data-jpa加强ActiveEntity包</description>
     <url>https://github.com/yjgbg/active-entity</url>
