@@ -1,11 +1,13 @@
 package com.github.yjgbg.jpa.plus.entitySupport;
 
+import java.io.Serializable;
+
 /**
  * 支持删除和保存
  * @author weicl
  * @param <Self>
  */
-public interface ActiveEntity<Self extends ActiveEntity<Self>> {
+public interface ActiveEntity<Self extends ActiveEntity<Self>> extends Serializable {
 
     /**
      * 保存该实体
